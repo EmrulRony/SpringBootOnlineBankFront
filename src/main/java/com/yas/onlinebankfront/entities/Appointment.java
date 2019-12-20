@@ -2,24 +2,36 @@ package com.yas.onlinebankfront.entities;
 
 import java.util.Date;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-public class Appointment extends BaseEntity {
+@Entity
+public class Appointment {
 
-    private static final long serialVersionUID = 1L;
-    @Column(name = "date")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Date date;
-    @Column(name = "location")
     private String location;
-    @Column(name = "description")
     private String description;
-    @Column(name = "confirmation")
-    private boolean confirmation;
+    private boolean confirmed;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -44,14 +56,6 @@ public class Appointment extends BaseEntity {
         this.description = description;
     }
 
-    public boolean isConfirmation() {
-        return confirmation;
-    }
-
-    public void setConfirmation(boolean confirmation) {
-        this.confirmation = confirmation;
-    }
-
     public User getUser() {
         return user;
     }
@@ -60,11 +64,22 @@ public class Appointment extends BaseEntity {
         this.user = user;
     }
 
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
     @Override
     public String toString() {
-        return "Appointment [confirmation=" + confirmation + ", date=" + date + ", description=" + description
-                + ", location=" + location + ", user=" + user + "]";
+        return "Appointment{" +
+                "id=" + id +
+                ", date=" + date +
+                ", location='" + location + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                '}';
     }
-  
-    
 }

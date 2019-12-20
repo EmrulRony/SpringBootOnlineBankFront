@@ -1,23 +1,38 @@
 package com.yas.onlinebankfront.entities;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-public class Recipient extends BaseEntity{
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-    private static final long serialVersionUID = 1L;
+@Entity
+public class Recipient {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String email;
     private String phone;
-    @Column(name = "account_number")
-    private long accountNumber;
+    private String accountNumber;
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -43,20 +58,12 @@ public class Recipient extends BaseEntity{
         this.phone = phone;
     }
 
-    public long getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(long accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public User getUser() {
@@ -67,10 +74,12 @@ public class Recipient extends BaseEntity{
         this.user = user;
     }
 
-    @Override
-    public String toString() {
-        return "Recipient [accountNumber=" + accountNumber + ", description=" + description + ", email=" + email
-                + ", name=" + name + ", phone=" + phone + ", user=" + user + "]";
+    public String getDescription() {
+        return description;
     }
-    
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
+

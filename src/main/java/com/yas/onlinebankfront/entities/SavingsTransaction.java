@@ -3,31 +3,33 @@ package com.yas.onlinebankfront.entities;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-public class SavingsTransaction extends BaseEntity{
+@Entity
+public class SavingsTransaction {
 
-    private static final long serialVersionUID = 1L;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Date date;
     private String description;
     private String type;
     private String status;
     private double amount;
-    @Column(name = "available_balance")
     private BigDecimal availableBalance;
 
     @ManyToOne
     @JoinColumn(name = "savings_account_id")
     private SavingsAccount savingsAccount;
-    
-    public SavingsTransaction(){
 
-    }
-    public SavingsTransaction(Date date, String description, String type, String status, double amount,
-            BigDecimal availableBalance, SavingsAccount savingsAccount) {
+    public SavingsTransaction() {}
+
+    public SavingsTransaction(Date date, String description, String type, String status, double amount, BigDecimal availableBalance, SavingsAccount savingsAccount) {
         this.date = date;
         this.description = description;
         this.type = type;
@@ -35,6 +37,14 @@ public class SavingsTransaction extends BaseEntity{
         this.amount = amount;
         this.availableBalance = availableBalance;
         this.savingsAccount = savingsAccount;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Date getDate() {
@@ -92,13 +102,4 @@ public class SavingsTransaction extends BaseEntity{
     public void setSavingsAccount(SavingsAccount savingsAccount) {
         this.savingsAccount = savingsAccount;
     }
-
-    @Override
-    public String toString() {
-        return "SavingsTransaction [amount=" + amount + ", availableBalance=" + availableBalance + ", date=" + date
-                + ", description=" + description + ", savingsAccount=" + savingsAccount + ", status=" + status
-                + ", type=" + type + "]";
-    }
-
-    
 }

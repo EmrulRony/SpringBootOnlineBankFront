@@ -4,30 +4,41 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "primary_account")
-public class PrimaryAccount extends BaseEntity{
+public class PrimaryAccount {
 
-    private static final long serialVersionUID = 1L;
-
-    @Column(name = "account_number")
-    private long accountNumber;
-    @Column(name = "account_balance")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private int accountNumber;
     private BigDecimal accountBalance;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "primaryAccount")
+
+    @OneToMany(mappedBy = "primaryAccount", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<PrimaryTransaction> primaryTransactionList;
 
-    public long getAccountNumber() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(long accountNumber) {
+    public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -47,9 +58,8 @@ public class PrimaryAccount extends BaseEntity{
         this.primaryTransactionList = primaryTransactionList;
     }
 
-    @Override
-    public String toString() {
-        return "PrimaryAccount [accountBalance=" + accountBalance + ", accountNumber=" + accountNumber + "]";
-    }
-    
+
 }
+
+
+

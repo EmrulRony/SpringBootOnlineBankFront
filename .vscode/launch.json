@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OnlinebankFrontApplication",
+            "request": "launch",
+            "mainClass": "com.yas.onlinebankfront.OnlinebankFrontApplication",
+            "projectName": "onlinebank-front"
+        }
+    ]
+}
