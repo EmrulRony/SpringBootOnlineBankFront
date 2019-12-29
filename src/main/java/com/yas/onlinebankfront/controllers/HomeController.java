@@ -15,4 +15,10 @@ public class HomeController{
     public String index(){
         return "index";
     }
+
+    @RequestMapping("/header")
+    public String header(){
+        return "common/header";
+    }
+
 }

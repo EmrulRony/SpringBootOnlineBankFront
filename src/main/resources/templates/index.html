@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="common/header :: common-header"/>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>OnlineBank</title>
+    <!-- Bootstrap core css -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- External fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <!-- Navbar CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- Login form css -->
+    <link rel="stylesheet" href="css/login-form.css">
+    <!-- Custom style css -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
 <body>
-<!-- Login Section -->
-    <!-- <img class="img-responsive" src="/images/banner.png" alt="banner"/> -->
-    <div class="container">
-        <div class="row ">
-            <div class="main-center ">
-                <div class="bg-danger" th:if="${param.error}">
-                    Invalid username and secret.
-                </div>
-                <div class="bg-danger" th:if="${param.logout}">
-                    You have been logged out.
-                </div>
-                <form class="form-signin" th:action="@{/index}" method="post">
-                    <h2 class="form-signin-heading">Please sign in</h2>
-                    <div class="form-group">
-                        <label for="username" class="sr-only">Username</label>
-                        <input type="text" roleId="username" class="form-control" placeholder="Username" name="username"
-                               id="username"
-                               required="required" autofocus="autofocus"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="sr-only">Password</label>
-                        <input type="password" roleId="inputPassword" class="form-control" placeholder="Password"
-                               id="password"
-                               name="password" required="required"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me"/> &nbsp; Remember me
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                </form>
-                
-                <hr />
-                
-                <div class="form-group ">
-                    <a type="submit" class="btn btn-info btn-lg btn-block login-button" th:href="@{/signup}">Sign up!</a>
-                </div>
-            </div>
+    <form id="form" th:action="@{/index}" method="post"
+        style="font-family: Quicksand, sans-serif;background-color: rgba(44,40,52,0.73);width: 320px;padding: 40px;">
+        <div class="bg-danger" th:if="${param.error}">
+            Invalid username or password.
         </div>
-    </div>
-
-<div th:replace="common/header :: body-bottom-scripts"/>
-
+        <div class="bg-danger" th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <h1 id="head" style="color:rgb(193,166,83);">Login form</h1>
+        <div class="form-group"><input class="form-control" roleId="username" name="username" type="text" id="formum"
+                placeholder="Username"></div>
+        <div class="form-group"><input class="form-control" roleId="password" name="password" type="password"
+                id="formum2" placeholder="Password"></div>
+        <div class="form-group">
+            <div class="form-check"><input class="form-check-input" name="remember-me" type="checkbox"
+                    id="formCheck-1"><label class="form-check-label" for="formCheck-1">Remember me</label></div>
+        </div><button class="btn btn-light" id="butonas"
+            style="width:100%;height:100%;margin-bottom:10px;background-color:rgb(106,176,209);"
+            type="submit">Sign-in</button><a id="linkas"
+            style="font-size:12px;margin:auto;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;padding-left:0;padding-right:0;color:rgb(177,151,70);"
+            th:href="@{/sign-up}">Sign-up for new account</a>
+    </form>
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
