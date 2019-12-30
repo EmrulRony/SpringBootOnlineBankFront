@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                                         "/error/**/*",
                                                         "/console/**",
                                                         "/common/**",
-                                                        "/signup"
+                                                        "/signup/**"
                                                      };
 
     @Bean
