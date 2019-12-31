@@ -1,12 +1,11 @@
 package com.yas.onlinebankfront.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.yas.onlinebankfront.entities.User;
+import com.yas.onlinebankfront.entities.security.UserRole;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public interface UserService {
     User findByUsername(String username);
     User findByEmail(String email);
@@ -16,4 +15,5 @@ public interface UserService {
     boolean checkUserExists(String username, String email);
     boolean checkUsernameExists(String username);
     boolean checkEmailExists(String email);
+    User createUser(User user, Set<UserRole> userRoles);
 }
