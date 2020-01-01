@@ -66,8 +66,12 @@ public class HomeController{
         userRoles.add(new UserRole(user,roleDao.findByName("ROLE_USER")));
         userService.createUser(user, userRoles);
         model.addAttribute("success", true);
-        user = null;
-        return "redirect:/signup";
+        return "redirect:/signup?success";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard(){
+        return "dashboard";
     }
 
 }

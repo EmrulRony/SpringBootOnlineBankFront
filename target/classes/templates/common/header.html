@@ -1,50 +1,121 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
-
-<head th:fragment="common-header">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head th:fragment="common-header">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>OnlineBank</title>
     <!-- Bootstrap core css -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
     <!-- External fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
-    <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Quicksand"
+    />
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css" />
     <!-- Navbar CSS -->
-    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbar.css" />
     <!-- Login form css -->
-    <link rel="stylesheet" href="/css/login-form.css">
+    <link rel="stylesheet" href="/css/login-form.css" />
     <!-- Custom style css -->
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
 
-<body th:fragment="navbar">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean navbar-inverse navbar-fixed-top">
+  <body>
+    <div th:fragment="top-navbar">
+      <nav
+        class="navbar navbar-light navbar-expand-md navigation-clean navbar-inverse navbar-fixed-top"
+      >
         <div class="container">
-            <div><a class="navbar-brand text-center" style="padding:0px;margin-left:0px;height:78px;" href="#"> <img class="img-fluid" src="/images/bank.png"><label>Swift Bank</label></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
-            <div
-                class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto" style="margin-top:13px;">
-                    <li class="nav-item" role="presentation"><a class="nav-link" uk-scroll="offset:50" href="#">Home </a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">ACcounts</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Primary</a><a class="dropdown-item" role="presentation" href="#">Savings</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">Transfer</a>
-                        <div class="dropdown-menu" role="menu" id="transfer-dropdown"><a class="dropdown-item" role="presentation" href="#">Between Accounts</a><a class="dropdown-item" role="presentation" href="#">To Other</a><a class="dropdown-item" role="presentation"></a><a class="dropdown-item" role="presentation"
-                                href="#">Add/Edit Recipient</a></div>
-                    </li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">Appointment</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Schedule Appointment</a></div>
-                    </li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" uk-scroll="offset:50" style="padding-left:80px" href="#"><i class="fa fa-user" style="font-size:25px"></i>&nbsp;Profile</a></li>
-                </ul>
+          <div>
+            <a
+              class="navbar-brand text-center"
+              style="padding:0px;margin-left:0px;height:78px;"
+              href="#"
+            >
+              <img class="img-fluid" src="/images/bank.png" /><label
+                >Swift Bank</label
+              ></a
+            ><button
+              data-toggle="collapse"
+              class="navbar-toggler"
+              data-target="#navcol-1"
+            >
+              <span class="sr-only">Toggle navigation</span
+              ><span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav ml-auto" style="margin-top:13px;">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" uk-scroll="offset:50" href="#">Home </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="dropdown-toggle nav-link"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                  >ACcounts</a
+                >
+                <div class="dropdown-menu" role="menu">
+                  <a class="dropdown-item" role="presentation" href="#"
+                    >Primary</a
+                  ><a class="dropdown-item" role="presentation" href="#"
+                    >Savings</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="dropdown-toggle nav-link"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                  >Transfer</a
+                >
+                <div class="dropdown-menu" role="menu" id="transfer-dropdown">
+                  <a class="dropdown-item" role="presentation" href="#"
+                    >Between Accounts</a
+                  ><a class="dropdown-item" role="presentation" href="#"
+                    >To Other</a
+                  ><a class="dropdown-item" role="presentation"></a
+                  ><a class="dropdown-item" role="presentation" href="#"
+                    >Add/Edit Recipient</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="dropdown-toggle nav-link"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                  >Appointment</a
+                >
+                <div class="dropdown-menu" role="menu">
+                  <a class="dropdown-item" role="presentation" href="#"
+                    >Schedule Appointment</a
+                  >
+                </div>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link"
+                  uk-scroll="offset:50"
+                  style="padding-left:80px"
+                  href="#"
+                  ><i class="fa fa-user" style="font-size:25px"></i
+                  >&nbsp;Profile</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        </div>
-    </nav>
-    <div th:fragment="page-bottom-scripts">
-        <script src="/js/jquery.min.js"></script>
-        <script src="/bootstrap/js/bootstrap.min.js"></script>
+      </nav>
     </div>
-</body>
-
+    <div th:fragment="page-bottom-scripts">
+      <script src="/js/jquery.min.js"></script>
+      <script src="/bootstrap/js/bootstrap.min.js"></script>
+    </div>
+  </body>
 </html>

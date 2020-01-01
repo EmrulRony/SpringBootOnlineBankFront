@@ -26,18 +26,21 @@ public class AccountServiceImpl implements AccountService {
         PrimaryAccount primaryAccount = new PrimaryAccount();
         primaryAccount.setAccountNumber(accountNumberGenerator());
         primaryAccount.setAccountBalance(new BigDecimal(0.0));
-        return primaryAccountDao.save(primaryAccount);
+        primaryAccountDao.save(primaryAccount);
+        return primaryAccountDao.findByAccountNumber(primaryAccount.getAccountNumber());
     }
 
     @Override
     public SavingsAccount createSavingsAccount() {
         SavingsAccount savingsAccount = new SavingsAccount();
         savingsAccount.setAccountNumber(accountNumberGenerator());
-        return savingsAccountDao.save(savingsAccount);
+        savingsAccount.setAccountBalance(new BigDecimal(0.0));
+        savingsAccountDao.save(savingsAccount);
+        return savingsAccountDao.findByAccountNumber(savingsAccount.getAccountNumber());
     }
 
     private int accountNumberGenerator(){
         return ++accountNumber;
-    }
+    } 
     
 }

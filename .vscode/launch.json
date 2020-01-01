@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TestClass",
+            "request": "launch",
+            "mainClass": "com.yas.onlinebankfront.ServiceImpl.TestClass",
+            "projectName": "onlinebank-front"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - OnlinebankFrontApplication",
             "request": "launch",
             "mainClass": "com.yas.onlinebankfront.OnlinebankFrontApplication",
