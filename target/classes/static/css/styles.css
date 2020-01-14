@@ -8,6 +8,26 @@
 .dashboard-cards{
   margin: 50px auto;
   padding: 50px;
+  color: white;
 }
 
+.dashboard-card {
+  opacity: 90%;
+}
 
+i.fa.fa-arrow-circle-o-right.text-right{
+  float: right;
+  font-size: 25px;
+}
+
+a.alert-link:hover{
+  text-decoration: none;
+}
+
+h2.text-secondary {
+  color: #fff7f7!important;
+}
+
+.text-secondary {
+  color: #4c5359!important;
+}
